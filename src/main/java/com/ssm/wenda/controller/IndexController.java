@@ -22,6 +22,6 @@ public class IndexController {
     @RequestMapping(value = "/hello",method = {RequestMethod.GET})
     public String template( ) {
         //model.addAttribute("value1", "vvvvv1");
-        return "index";
+        return "home";
     }
 }
