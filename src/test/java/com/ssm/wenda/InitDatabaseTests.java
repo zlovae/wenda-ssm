@@ -1,6 +1,8 @@
 package com.ssm.wenda;
 
+import com.ssm.wenda.dao.QuestionDAO;
 import com.ssm.wenda.dao.UserDAO;
+import com.ssm.wenda.model.Question;
 import com.ssm.wenda.model.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,10 +25,10 @@ import java.util.Random;
 public class InitDatabaseTests {
 	@Autowired
 	UserDAO userDAO;
-/*
+
 	@Autowired
 	QuestionDAO questionDAO;
-
+/*
 	@Autowired
 	SensitiveService sensitiveUtil;
 
@@ -38,23 +40,23 @@ public class InitDatabaseTests {
 */
 	@Test
 	public void contextLoads() {
-		Random random = new Random();
+	Random random = new Random();
 		//jedisAdapter.getJedis().flushDB();
 		for (int i = 0; i < 11; ++i) {
-			User user = new User();
+/*				User user = new User();
 			user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
 			user.setName(String.format("USER%d", i+1));
 			user.setPassword("");
 			user.setSalt("");
 			userDAO.addUser(user);
-/*
+
 			for (int j = 1; j < i; ++j) {
 				followService.follow(j, EntityType.ENTITY_USER, i);
 			}
 
 			user.setPassword("newpassword");
 			userDAO.updatePassword(user);
-
+*/
 			Question question = new Question();
 			question.setCommentCount(i);
 			Date date = new Date();
@@ -63,9 +65,9 @@ public class InitDatabaseTests {
 			question.setUserId(i + 1);
 			question.setTitle(String.format("TITLE{%d}", i));
 			question.setContent(String.format("Balaababalalalal Content %d", i));
-			questionDAO.addQuestion(question);*/
-			user.setPassword("newpassword");
-			userDAO.updatePassword(user);
+			questionDAO.addQuestion(question);
+			//user.setPassword("newpassword");
+			//userDAO.updatePassword(user);
 		}
 
 		//Assert.assertEquals("newpassword", userDAO.selectById(1).getPassword());
