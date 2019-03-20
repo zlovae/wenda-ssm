@@ -27,7 +27,7 @@ public class IndexController {
 
     @Autowired
     WendaService wendaService;
-
+/*
     @RequestMapping(path = {"/","index"})
     @ResponseBody
     public String Index() {
@@ -40,7 +40,7 @@ public class IndexController {
         return String.format("Profile Page of %d", UserId);
     }
 
-
+*/
     @RequestMapping(value = "/hello")
     public String template() {
         //model.addAttribute("value1", "vvvvv1");

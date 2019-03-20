@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 /**
- * Created by zlovae on 2019/3/19.
+ * Created by zlovae on 2019/3/20.
  */
 @Service
 public class UserService {
@@ -24,6 +24,10 @@ public class UserService {
 
     @Autowired
     private LoginTicketDAO loginTicketDAO;
+
+    public User selectByName(String name) {
+        return userDAO.selectByName(name);
+    }
 
     public Map<String, Object> register(String username, String password) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -86,6 +90,7 @@ public class UserService {
 
         String ticket = addLoginTicket(user.getId());
         map.put("ticket", ticket);
+        map.put("userId", user.getId());
         return map;
     }
 

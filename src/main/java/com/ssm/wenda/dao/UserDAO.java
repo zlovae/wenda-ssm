@@ -4,7 +4,7 @@ import com.ssm.wenda.model.User;
 import org.apache.ibatis.annotations.*;
 
 /**
- * Created by nowcoder on 2019/3/17.
+ * Created by zlovae on 2019/3/17.
  */
 @Mapper
 public interface UserDAO {

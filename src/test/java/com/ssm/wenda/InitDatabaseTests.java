@@ -9,19 +9,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-//import org.springframework.boot.test.SpringApplicationConfiguration;//.SpringBootTest;
+//import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.SpringApplicationConfiguration;//.SpringBootTest;
 
 
 import java.util.Date;
 import java.util.Random;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = WendaApplication.class)
-@Sql("/init-schema.sql")
+@SpringApplicationConfiguration(classes = WendaApplication.class)
+//@Sql("/init-schema.sql")
 public class InitDatabaseTests {
 	@Autowired
 	UserDAO userDAO;
@@ -43,13 +43,13 @@ public class InitDatabaseTests {
 	Random random = new Random();
 		//jedisAdapter.getJedis().flushDB();
 		for (int i = 0; i < 11; ++i) {
-/*				User user = new User();
+			User user = new User();
 			user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
 			user.setName(String.format("USER%d", i+1));
 			user.setPassword("");
 			user.setSalt("");
 			userDAO.addUser(user);
-
+/*
 			for (int j = 1; j < i; ++j) {
 				followService.follow(j, EntityType.ENTITY_USER, i);
 			}
@@ -66,8 +66,8 @@ public class InitDatabaseTests {
 			question.setTitle(String.format("TITLE{%d}", i));
 			question.setContent(String.format("Balaababalalalal Content %d", i));
 			questionDAO.addQuestion(question);
-			//user.setPassword("newpassword");
-			//userDAO.updatePassword(user);
+			user.setPassword("newpassword");
+			userDAO.updatePassword(user);
 		}
 
 		//Assert.assertEquals("newpassword", userDAO.selectById(1).getPassword());
